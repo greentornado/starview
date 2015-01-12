@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<openerp>
+<data>
+<!-- ============== student================= -->
+<!-- 1st part of the sim_view start-->
+<record model="ir.ui.view" id="solution_form">
+<field name="name">Solution Form</field>
+<field name="model">solution.solution</field>
+<field name="type">form</field>
+<field name="arch" type="xml">
+<form string="solution">
+	<sheet>
+		<h1><label string="Solution"></label></h1>
+		<group>
+			<group>
+				<field name="name"/>
+				<field name="bom"/>
+				<field name="product_category"/>
+			</group>
+			<group>
+				<field name="create_date"/>
+			</group>
+		</group>
+		<notebook> 
+			<page string="Bom Details">
+				<field name="properties">
+				<tree string="Sales Order Lines" editable="bottom">
+					<field name="product_name"/>
+					<field name="comprobante" filename="comprobante_fname" string="BOM URL"/>
+					<field name="create_date"/>
+                </tree>
+				</field>
+			</page>
+		</notebook>
+	</sheet>
+</form>
+</field>
+</record>
+<!-- 1st part of the sim_view end-->
+<!--2nd part of the sim_view start-->
+<record model="ir.ui.view" id="solutin_tree">
+<field name="name">Solution Tree</field>
+<field name="model">solution.solution</field>
+<field name="type">tree</field>
+<field name="arch" type="xml">
+<tree string="Solution">
+<field name="name"/>
+<field name="bom"/>
+<field name="product_category"/>
+<field name="create_date"/>
+</tree>
+</field>
+</record>
+<!--2nd part of the sim_view end-->
+<!-- 3rd part of the sim_view start-->
+<record model="ir.actions.act_window" id="action_solution">
+<field name="name">Solution</field>
+<field name="res_model">solution.solution</field>
+<field name="view_type">form</field>
+<field name="view_mode">tree,form</field>
+</record>
+<!--3rd part of the sim_view end-->
+<!--4th part of the sim_view start-->
+<menuitem name="Sales/Solution Management/Solution" id="menu_solution_solution" action="action_solution"/>
+<!--4th part of the sim_view end-->
+</data>
+</openerp>
