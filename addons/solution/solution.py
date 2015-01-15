@@ -6,7 +6,7 @@ class solution(osv.osv):
     _columns = {
         'name': fields.char('Solution Name',size=256,required=True),
         'bom':fields.selection([('bom1','BOM1'),('bom2','BOM2')],'BOM'),
-		'product_category':fields.selection([('category1','Category1'),('category2','Category2')],'Product Category'),
+		'product_category':fields.many2one('product.category', 'Product Cateogry', select=True),
 		'product_name':fields.selection([('product1','Product1'),('product2','Product2')],'Product'),
         'bom_create_date':fields.datetime('Create Date', readonly=True, select=True, help="Date on which sales order is created."),
 		'comprobante_fname': fields.char('URL', size=64, readonly=True),
